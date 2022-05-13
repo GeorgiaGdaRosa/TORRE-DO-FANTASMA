@@ -54,7 +54,7 @@ function draw() {
 
       GerarPortas()
     
-      if(ghost.isTouching(climbersGroup) || ghost.y >650){
+      if(ghost.isTouching(invisibleBlockGroup) || ghost.y >650){
       gameState = end
     }
 
@@ -72,6 +72,9 @@ function draw() {
         ghost.velocityY = -5
 
       }
+
+        ghost.collide(climbersGroup)
+
         }
         
         if (gameState === end){
@@ -125,6 +128,7 @@ function GerarPortas(){
 function resetGame(){
   gameState = play
   ghost.y = 60
+  ghost.x = 300
   gameOver.visible = false
   reset.visible= false
   tower.velocityY = 1
